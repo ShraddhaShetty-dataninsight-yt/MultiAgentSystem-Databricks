@@ -40,7 +40,8 @@ random.seed(42)
 # ============================================================
 # Schema creation
 # ============================================================
-spark.sql(f"CREATE CATALOG IF NOT EXISTS {TARGET_CATALOG}")
+# Note: The catalog (e.g. "workspace") must already exist.
+# We only create the schemas inside it.
 spark.sql(f"CREATE SCHEMA IF NOT EXISTS {TARGET_CATALOG}.{TARGET_SCHEMA}")
 spark.sql(f"CREATE SCHEMA IF NOT EXISTS {TARGET_CATALOG}.{TARGET_BRONZE_SCHEMA}")
 
